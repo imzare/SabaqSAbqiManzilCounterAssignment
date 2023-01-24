@@ -18,10 +18,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private static final String COLUMN_ID = "id";
     //private static final Date COLUMN_datetime = d;
-    private static final String COLUMN_StudentName = "Name";
-    private static final String COLUMN_StudentSabaq = "Sabaq";
-    private static final String COLUMN_StudentSabqi = "Sabqi";
-    private static final String COLUMN_StudentManzil = "Manzil";
+    private static final String COLUMN_StudentName = "CName";
+    private static final String COLUMN_StudentSabaq = "CSabaq";
+    private static final String COLUMN_StudentSabqi = "CSabqi";
+    private static final String COLUMN_StudentManzil = "CManzil";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, 1);
