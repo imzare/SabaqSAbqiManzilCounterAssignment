@@ -30,19 +30,20 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewheader" />
 
     <ListView
+        android:id="@+id/arraylistview"
         android:layout_width="388dp"
         android:layout_height="577dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="1dp"
         android:background="#FFC107"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintBottom_toTopOf="@+id/textView3footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView3footer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#009688"
@@ -51,5 +52,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
+        app:layout_constraintTop_toBottomOf="@+id/arraylistview" />
 </androidx.constraintlayout.widget.ConstraintLayout>
