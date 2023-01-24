@@ -59,7 +59,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_StudentManzil, qr.getManzil());
 
         db.insert(TABLE_NAME, null, values);
-        db.close();
+        //db.close();
     }
 
 
@@ -87,7 +87,7 @@ public class DBHandler extends SQLiteOpenHelper {
             totalresult.add(new RecordClassManipulation(Students, "","","" ));
         }
         cursor.close();
-        db.close();
+       // db.close();
         return totalresult;
     }
 }

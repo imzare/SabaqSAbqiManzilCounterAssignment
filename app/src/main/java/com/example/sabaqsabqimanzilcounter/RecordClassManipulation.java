@@ -65,4 +65,10 @@ public class RecordClassManipulation {
     public void setManzil(String manzil) {
         Manzil = manzil;
     }
+
+
+    @Override
+    public String toString() {
+        return Name ;
+    }
 }
