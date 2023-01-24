@@ -35,7 +35,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + COLUMN_StudentName + " TEXT,"
                 + COLUMN_StudentSabaq + " TEXT,"
                 + COLUMN_StudentSabqi + " TEXT,"
-                + COLUMN_StudentManzil + " TEXT,"
+                + COLUMN_StudentManzil + " TEXT"
     //            + COLUMN_isCorrect + " INTEGER"
                 + ")";
         db.execSQL(sql);
@@ -53,9 +53,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         //      values.put(COLUMN_datetime, qr.getDatetime());
-        values.put(COLUMN_SelectedAns, qr.getSelectedAns());
-        values.put(COLUMN_CorrectAns, qr.getCorrectAns());
-        values.put(COLUMN_isCorrect, qr.getisCorrect());
+        values.put(COLUMN_StudentName, qr.getName());
+        values.put(COLUMN_StudentSabaq, qr.getSabaq());
+        values.put(COLUMN_StudentSabqi, qr.getSabqi());
+        values.put(COLUMN_StudentManzil, qr.getManzil());
 
         db.insert(TABLE_NAME, null, values);
         db.close();
@@ -78,27 +79,15 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
-/*        if (cursor.moveToFirst()) {
-            do {
-                totalresult.add(new StudentModel(cursor.getString(1),
-                        cursor.getInt(2),
-                        cursor.getInt(3) == 1 ? true : false));
-            } while (cursor.moveToNext());
-        }*/
 
         while(cursor.moveToNext()) {
-            String SA=cursor.getString(1);
-            String CA=cursor.getString(2);
+            String Students=cursor.getString(1);
+            //String CA=cursor.getString(2);
             // int isc ;
-            totalresult.add(new RecordClassManipulation(SA, CA, cursor.getInt(3) == 1 ? true : false));
+            totalresult.add(new RecordClassManipulation(Students, "","","" ));
         }
-
-
-
-
         cursor.close();
         db.close();
-
         return totalresult;
     }
 }
