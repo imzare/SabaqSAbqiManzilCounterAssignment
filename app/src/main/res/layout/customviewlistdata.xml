@@ -30,12 +30,12 @@
         app:layout_constraintTop_toTopOf="@+id/imageViewFriendPicture" />
 
     <TextView
-        android:id="@+id/textViewDate"
+        android:id="@+id/textVieweditdetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="DOB"
+        android:text="Edit Details"
         android:textColor="@color/design_default_color_error"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewFriendPicture"
@@ -56,14 +56,14 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewFriendPicture" />
 
     <TextView
-        android:id="@+id/textViewCity"
+        android:id="@+id/textViewdetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="City"
+        android:text="View Details"
         android:textColor="@android:color/holo_green_dark"
         android:textColorHint="@android:color/holo_green_dark"
         android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/textViewDate"
-        app:layout_constraintTop_toTopOf="@+id/textViewDate" />
+        app:layout_constraintStart_toEndOf="@+id/textVieweditdetails"
+        app:layout_constraintTop_toTopOf="@+id/textVieweditdetails" />
 </androidx.constraintlayout.widget.ConstraintLayout>
