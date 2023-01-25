@@ -60,7 +60,10 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
 // Add the buttons
                 builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK button
+                        // User clicked Update button
+
+
+
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
