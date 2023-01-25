@@ -3,11 +3,13 @@ package com.example.sabaqsabqimanzilcounter;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,6 +59,13 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
                 builder.setMessage("You can update existing record here");
                 builder.setTitle("Edit Record");
                 builder.setCancelable(true);
+                LayoutInflater inflator= LayoutInflater.from(v.getContext());
+                View layout = inflator.inflate(R.layout.changerecord, (ViewGroup) v.findViewById(R.id.custt) );
+                //show custom view
+                builder.setView(layout);
+
+
+                //end customview
 // Add the buttons
                 builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
