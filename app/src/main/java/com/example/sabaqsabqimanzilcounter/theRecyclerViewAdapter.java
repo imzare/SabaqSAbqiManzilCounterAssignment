@@ -26,7 +26,7 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
     public theRecyclerViewAdapter.MyVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.single_item, parent, false);
+                .inflate(R.layout.customviewlistdata, parent, false);
         return new MyVH(itemView);
     }
 
@@ -50,7 +50,7 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
         TextView textViewFriendName;
         TextView textViewdateFriend;
         TextView textViewCity;
-        Friend data;
+        RecordClassManipulation data;
         public MyVH(@NonNull View itemView) {
             super(itemView);
             imageViewFriend = itemView.findViewById(R.id.imageViewFriendPicture);
