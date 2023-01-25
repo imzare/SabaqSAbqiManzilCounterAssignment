@@ -23,7 +23,6 @@ ListView lw;
 EditText ed;
 Button btn;
 
-    List<RecordClassManipulation> friendsList = new ArrayList<>();
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
@@ -37,7 +36,7 @@ DBHandler db;
         hd=findViewById(R.id.textViewheader);
         ft=findViewById(R.id.textView3footer);
         sb=findViewById(R.id.textView2);
-        lw=findViewById(R.id.arraylistview);
+       // lw=findViewById(R.id.arraylistview);
         ed=findViewById(R.id.editTextTextPersonName2);
         btn=findViewById(R.id.button2);
         db = new DBHandler(this);
@@ -62,13 +61,19 @@ DBHandler db;
 
 
 
-        RecordClassManipulation f9 = new RecordClassManipulation("10","Rizwan","1982","Kasur");
-        RecordClassManipulation f10 = new RecordClassManipulation("11","Junaid","1977","Islamabad");
-        RecordClassManipulation f11 = new RecordClassManipulation("12","Waseem","1967","Rawalpindi");
 
-        friendsList.addAll(Arrays.asList(new RecordClassManipulation[]{f9,f10,f11}));
+    }
 
 
+
+
+
+
+    public void RefreshGrid() {
+
+    //new recycler work
+
+        List<RecordClassManipulation> students = db.selectAllresults();
 
 
 
@@ -87,22 +92,18 @@ DBHandler db;
 //                true);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new theRecyclerViewAdapter(friendsList) ;
+        adapter = new theRecyclerViewAdapter(students) ;
         recyclerView.setAdapter(adapter);
         //adapter.notifyDataSetChanged();
 
-    }
 
 
 
 
 
-
-    public void RefreshGrid() {
-        List<RecordClassManipulation> students = db.selectAllresults();
-
-        ArrayAdapter<RecordClassManipulation> arrayAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, students);
-        lw.setAdapter(arrayAdapter);
+// Arraylist based work
+        //ArrayAdapter<RecordClassManipulation> arrayAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, students);
+        //lw.setAdapter(arrayAdapter);
     }
 
 }
