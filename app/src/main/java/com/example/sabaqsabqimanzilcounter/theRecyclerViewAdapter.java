@@ -34,9 +34,9 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
     public void onBindViewHolder(@NonNull theRecyclerViewAdapter.MyVH holder, int position) {
         holder.data=friendsList.get(position);
         holder.textViewFriendName.setText(holder.data.getName());
-        holder.textViewdateFriend.setText(String.valueOf(holder.data.getDob()));
-        holder.imageViewFriend.setImageResource(holder.data.getImageID());
-        holder.textViewCity.setText(holder.data.getCity());
+        //holder.textViewdateFriend.setText(String.valueOf(holder.data.getDob()));
+       // holder.imageViewFriend.setImageResource(holder.data.getImageID());
+       // holder.textViewCity.setText(holder.data.getCity());
     }
 
     @Override
