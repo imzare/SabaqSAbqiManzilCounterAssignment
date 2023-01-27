@@ -2,11 +2,14 @@ package com.example.sabaqsabqimanzilcounter;
 
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +22,8 @@ import java.util.List;
 
 
 public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerViewAdapter.MyVH> {
+
+    EditText PersonName0, PersonSabaq0, PersonSabqi0, PersonManzil0;
 
     List<RecordClassManipulation> studentList;
     public theRecyclerViewAdapter(List<RecordClassManipulation> studentList) {
@@ -60,6 +65,7 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
                 builder.setTitle("Edit Record");
                 builder.setCancelable(true);
                 LayoutInflater inflator= LayoutInflater.from(v.getContext());
+
                 View layout = inflator.inflate(R.layout.changerecord, (ViewGroup) v.findViewById(R.id.custt) );
                 //show custom view
                 builder.setView(layout);
@@ -69,9 +75,41 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
 // Add the buttons
                 builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+
+
+                        //getting text from inflated text
+                        Dialog dialogObj = Dialog.class.cast(dialog);
+
+
+                        EditText name1=(EditText)dialogObj.findViewById(R.id.editTextTextPersonName);
+                        EditText sabaq1=(EditText)dialogObj.findViewById(R.id.editTextTextPersonSabaq);
+                        EditText sabqi1=(EditText)dialogObj.findViewById(R.id.editTextTextPersonsabqi);
+                        EditText manzil1=(EditText)dialogObj.findViewById(R.id.editTextTextPersonManzil);
+
+                        String w= name1.getText().toString();
+                        String x= sabaq1.getText().toString() ;
+                        String y=sabqi1.getText().toString();
+                        String z= manzil1.getText().toString();
+
+                        Log.d("hassan1 ",w);
+                        Log.d("hassan2 ",x);
+                        Log.d("hassan3 ",y);
+                        Log.d("hassan4 ",z);
+
+                        name1.setText("hard coded text");
+
+
+
                         // User clicked Update button
-
-
+                        DBHandler upr = new DBHandler(v.getContext());
+                       // String a= holder.textViewFriendName.getText().toString();
+                        //Log.d("hassan ",a);
+                        //Log.d("sabaq",holder.PersonSabaq.getText().toString() );
+                        //RecordClassManipulation up = new RecordClassManipulation(a,holder.PersonSabaq.getText().toString(),holder.PersonSabqi.getText().toString(),holder.PersonManzil.getText().toString());
+                        RecordClassManipulation up = new RecordClassManipulation(w,x,y,z);
+                        upr.updateStudent(up);
+                        //MainActivity ma = new MainActivity();
+                        //ma.RefreshGrid();
 
                     }
                 });
@@ -106,12 +144,19 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
         TextView textViewEdit;
         TextView textViewSeeDetails;
         RecordClassManipulation data;
+
+        EditText PersonName, PersonSabaq, PersonSabqi, PersonManzil;
         public MyVH(@NonNull View itemView) {
             super(itemView);
             imageViewFriend = itemView.findViewById(R.id.imageViewFriendPicture);
             textViewFriendName = itemView.findViewById(R.id.textViewFriendName);
             textViewEdit = itemView.findViewById(R.id.textVieweditdetails);
             textViewSeeDetails = itemView.findViewById(R.id.textViewdetails);
+
+            PersonName = itemView.findViewById(R.id.editTextTextPersonName);
+            PersonSabaq = itemView.findViewById(R.id.editTextTextPersonSabaq);
+            PersonSabqi = itemView.findViewById(R.id.editTextTextPersonsabqi);
+            PersonManzil = itemView.findViewById(R.id.editTextTextPersonManzil);
         }
     }
 }

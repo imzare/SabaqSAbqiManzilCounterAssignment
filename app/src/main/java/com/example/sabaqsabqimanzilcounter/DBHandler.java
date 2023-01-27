@@ -90,4 +90,19 @@ public class DBHandler extends SQLiteOpenHelper {
        // db.close();
         return totalresult;
     }
+
+
+
+    public void updateStudent(RecordClassManipulation studentdatachange) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_StudentSabaq, studentdatachange.getSabaq());
+        values.put(COLUMN_StudentSabqi, studentdatachange.getSabqi());
+        values.put(COLUMN_StudentManzil, studentdatachange.getManzil());
+
+
+
+        db.update(TABLE_NAME, values, COLUMN_StudentName + " = ?", new String[] {studentdatachange.getName().toString()});
+        db.close();
+    }
 }
