@@ -66,4 +66,22 @@
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textVieweditdetails"
         app:layout_constraintTop_toTopOf="@+id/textVieweditdetails" />
+
+    <TextView
+        android:id="@+id/textViewrollId"
+        android:layout_width="125dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="14dp"
+        android:text="BITF19A00X"
+        android:textColor="@color/purple_700"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewdetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewFriendName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
