@@ -20,7 +20,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 TextView hd, ft, sb;
 ListView lw;
-EditText ed;
+EditText ed, ee;
 Button btn;
 
     RecyclerView recyclerView;
@@ -38,6 +38,7 @@ DBHandler db;
         sb=findViewById(R.id.textView2);
        // lw=findViewById(R.id.arraylistview);
         ed=findViewById(R.id.editTextTextPersonName2);
+        ee=findViewById(R.id.editTextTextRollnum);
         btn=findViewById(R.id.button2);
         db = new DBHandler(this);
         RefreshGrid();
@@ -52,7 +53,7 @@ DBHandler db;
                     Toast.makeText(MainActivity.this, "Please enter valid data", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                RecordClassManipulation data = new RecordClassManipulation( ed.getText().toString(),"", "","");
+                RecordClassManipulation data = new RecordClassManipulation( ed.getText().toString(),"", "","",ee.getText().toString());
                 db.insertRecord(data);
                 RefreshGrid();
             }

@@ -87,7 +87,9 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
                         EditText sabaq1=(EditText)dialogObj.findViewById(R.id.editTextTextPersonSabaq);
                         EditText sabqi1=(EditText)dialogObj.findViewById(R.id.editTextTextPersonsabqi);
                         EditText manzil1=(EditText)dialogObj.findViewById(R.id.editTextTextPersonManzil);
+                        EditText Rollnun=(EditText)dialogObj.findViewById(R.id.editTextTextRollnum);
 
+                        String r= name1.getText().toString();
                         String w= name1.getText().toString();
                         String x= sabaq1.getText().toString() ;
                         String y=sabqi1.getText().toString();
@@ -106,7 +108,7 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
                         DBHandler upr = new DBHandler(v.getContext());
 
 
-                        RecordClassManipulation up = new RecordClassManipulation(w,x,y,z);
+                        RecordClassManipulation up = new RecordClassManipulation(r,w,x,y,z);
                         upr.updateStudent(up);
 
 

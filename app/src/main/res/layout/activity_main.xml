@@ -25,7 +25,7 @@
         android:layout_marginStart="21dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="21dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="5dp"
         android:text=" select Student to view and update record"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
@@ -49,12 +49,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylerViewStudent"
-        android:layout_width="387dp"
-        android:layout_height="526dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="380dp"
+        android:layout_height="472dp"
+        android:layout_marginTop="19dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextRollnum" />
 
     <TextView
         android:id="@+id/textView3footer"
@@ -74,15 +74,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Add New Student"
         android:inputType="textPersonName"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/recylerViewStudent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextRollnum"
         app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/button2"
@@ -91,10 +93,25 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="74dp"
         android:text="Add"
         app:layout_constraintBottom_toTopOf="@+id/recylerViewStudent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/editTextTextRollnum"
+        android:layout_width="225dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="167dp"
+        android:ems="10"
+        android:hint="Add Unique RooNumber"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/recylerViewStudent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

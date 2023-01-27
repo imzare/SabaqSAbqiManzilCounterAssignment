@@ -14,16 +14,17 @@ public class RecordClassManipulation {
     String Sabqi;
     String Manzil;
 
-    String Date;
+    String RollNumber;
 
 
-    public RecordClassManipulation( String pName,    String pSabaq,    String pSabqi,    String pManzil) {
+    public RecordClassManipulation( String pName,    String pSabaq,    String pSabqi,    String pManzil, String pRollNumber) {
 
         //  this.datetime = datetime;
         Name= pName;
         Sabaq=pSabaq;
         Sabqi=pSabqi;
         Manzil=pManzil;
+        RollNumber=pRollNumber;
        // Date = pDate;
 
     }
@@ -36,7 +37,7 @@ public class RecordClassManipulation {
         Sabaq="";
         Sabqi="";
         Manzil="";
-        Date="";
+        RollNumber="";
 
     }
 
@@ -80,17 +81,11 @@ public class RecordClassManipulation {
     }
 
 
-/*    public String getDate() {
-
-        //getting current date time
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Calendar cal = Calendar.getInstance();
-        String Date= dateFormat.format(cal.getTime()).toString();
-        Log.d(Date, "insertRecord: ");
-        return Date;
+    public String getRollNumber() {
+        return RollNumber;
     }
 
-    public void setDate(String date) {
-        Date = date;
-    }*/
+    public void setRollNumber(String rollNumber) {
+        RollNumber = rollNumber;
+    }
 }

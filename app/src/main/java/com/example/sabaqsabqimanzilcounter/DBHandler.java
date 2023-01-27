@@ -68,7 +68,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_StudentSabaq, qr.getSabaq());
         values.put(COLUMN_StudentSabqi, qr.getSabqi());
         values.put(COLUMN_StudentManzil, qr.getManzil());
-        //values.put(COLUMN_StudentRoll, );
+        values.put(COLUMN_StudentRoll, qr.getRollNumber() );
         values.put(COLUMN_datetime, cuurentTime );
 
         db.insert(TABLE_NAME, null, values);
@@ -95,9 +95,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
         while(cursor.moveToNext()) {
             String Students=cursor.getString(1);
+            String roll=cursor.getString(5);
             //String CA=cursor.getString(2);
             // int isc ;
-            totalresult.add(new RecordClassManipulation(Students, "","","" ));
+            totalresult.add(new RecordClassManipulation(Students, "","","",roll ));
         }
         cursor.close();
        // db.close();
