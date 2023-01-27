@@ -20,13 +20,19 @@ ListView lw;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_bio);
+
+        testt =findViewById(R.id.textViewMain);
+
         Intent intent = getIntent();
          String number = intent.getStringExtra("passRoll");
         DBHandler db = new DBHandler(this);
         List<RecordClassManipulation> students = db.selectSpccificresults(number);
+        //List<RecordClassManipulation> students = db.selectSpccificresults(number);
         Log.d(number, "WhatIn ");
-
+        testt.setText(number);
         lw= findViewById(R.id.SuratNamesListView);
+
+
 
         ArrayList<String> arrli = new ArrayList<>();
         arrli.add(students.toString());

@@ -6,6 +6,8 @@ import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.util.Log;
 
+import java.util.Date;
+
 public class RecordClassManipulation {
 
     // Date datetime;
@@ -83,14 +85,15 @@ public class RecordClassManipulation {
         RollNumber = rollNumber;
     }
 
-/*    @Override
+/*   @Override
     public String toString() {
         return Name;
     }*/
 
     @Override
     public String toString() {
-        return "Student Data:- Name:" + Name + ", rollNo=" + RollNumber ;
+        return "Student Data:-\n Name:" + Name + "\n Date=" + RollNumber + "\n Sabaq=" + Sabaq+ "\n Sabqi=" + Sabqi+ "\n Manzil=" + Manzil
+                + "\n" +  "...................................." +"\n";
     }
 }
 

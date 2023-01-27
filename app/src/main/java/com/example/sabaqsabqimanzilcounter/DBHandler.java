@@ -135,7 +135,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public List<RecordClassManipulation> selectSpccificresults(String rollID) {
         List<RecordClassManipulation> totalresult = new ArrayList<>();
-
+        String totalfinal="";
         String sql = "select * from " + TABLE_NAME +" where " + COLUMN_StudentRoll + " = " + "\"" +rollID+ "\""  ;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -148,10 +148,13 @@ public class DBHandler extends SQLiteOpenHelper {
             String Sabqi=cursor.getString(3);
             String Manzil=cursor.getString(4);
             String roll=cursor.getString(5);
+            String date = cursor.getString(6);
             //String CA=cursor.getString(2);
             // int isc ;
-            totalresult.add(new RecordClassManipulation(Student, Sabaq,Sabqi,Manzil,roll ));
+            totalfinal= date+""+Student+""+Sabaq+""+Sabqi+""+Manzil+""+roll;
+            totalresult.add(new RecordClassManipulation(Student, Sabaq,Sabqi,Manzil,date ));
         }
+
         cursor.close();
         // db.close();
         return totalresult;
