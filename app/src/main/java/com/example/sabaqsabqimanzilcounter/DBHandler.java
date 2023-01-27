@@ -6,6 +6,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
+import android.icu.util.Calendar;
+import android.util.Log;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -17,7 +21,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "Students";
 
     private static final String COLUMN_ID = "id";
-    //private static final Date COLUMN_datetime = d;
+    private static final String COLUMN_datetime = "CDate";
     private static final String COLUMN_StudentName = "CName";
     private static final String COLUMN_StudentSabaq = "CSabaq";
     private static final String COLUMN_StudentSabqi = "CSabqi";
@@ -31,7 +35,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                //               + COLUMN_datetime + " datetime,"
+                               + COLUMN_datetime + " TEXT,"
                 + COLUMN_StudentName + " TEXT,"
                 + COLUMN_StudentSabaq + " TEXT,"
                 + COLUMN_StudentSabqi + " TEXT,"
@@ -48,11 +52,14 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertRecord(RecordClassManipulation qr) {
+    public void insertRecord( RecordClassManipulation qr) {
+
+
+
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        //      values.put(COLUMN_datetime, qr.getDatetime());
+        //values.put(COLUMN_datetime, qr.getDate() );
         values.put(COLUMN_StudentName, qr.getName());
         values.put(COLUMN_StudentSabaq, qr.getSabaq());
         values.put(COLUMN_StudentSabqi, qr.getSabqi());

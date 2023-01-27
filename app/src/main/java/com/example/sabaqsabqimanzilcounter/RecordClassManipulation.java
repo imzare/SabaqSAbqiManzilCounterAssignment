@@ -1,6 +1,10 @@
 package com.example.sabaqsabqimanzilcounter;
 
 
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
+import android.icu.util.Calendar;
+import android.util.Log;
 
 public class RecordClassManipulation {
 
@@ -9,16 +13,18 @@ public class RecordClassManipulation {
     String Sabaq;
     String Sabqi;
     String Manzil;
-    //boolean isCorrect;
+
+    String Date;
 
 
-    public RecordClassManipulation(String pName,    String pSabaq,    String pSabqi,    String pManzil) {
+    public RecordClassManipulation( String pName,    String pSabaq,    String pSabqi,    String pManzil) {
 
         //  this.datetime = datetime;
         Name= pName;
         Sabaq=pSabaq;
         Sabqi=pSabqi;
         Manzil=pManzil;
+       // Date = pDate;
 
     }
 
@@ -30,6 +36,7 @@ public class RecordClassManipulation {
         Sabaq="";
         Sabqi="";
         Manzil="";
+        Date="";
 
     }
 
@@ -71,4 +78,19 @@ public class RecordClassManipulation {
     public String toString() {
         return Name ;
     }
+
+
+/*    public String getDate() {
+
+        //getting current date time
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        String Date= dateFormat.format(cal.getTime()).toString();
+        Log.d(Date, "insertRecord: ");
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }*/
 }

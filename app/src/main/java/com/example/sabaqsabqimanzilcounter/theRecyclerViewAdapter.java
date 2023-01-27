@@ -82,7 +82,7 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
                         //getting text from inflated text
                         Dialog dialogObj = Dialog.class.cast(dialog);
 
-
+                        //binding edit text of custom layout in, inflator
                         EditText name1=(EditText)dialogObj.findViewById(R.id.editTextTextPersonName);
                         EditText sabaq1=(EditText)dialogObj.findViewById(R.id.editTextTextPersonSabaq);
                         EditText sabqi1=(EditText)dialogObj.findViewById(R.id.editTextTextPersonsabqi);
@@ -105,13 +105,10 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
                         // User clicked Update button
                         DBHandler upr = new DBHandler(v.getContext());
 
-                        //Log.d("hassan ",a);
-                        //Log.d("sabaq",holder.PersonSabaq.getText().toString() );
-                        //RecordClassManipulation up = new RecordClassManipulation(a,holder.PersonSabaq.getText().toString(),holder.PersonSabqi.getText().toString(),holder.PersonManzil.getText().toString());
+
                         RecordClassManipulation up = new RecordClassManipulation(w,x,y,z);
                         upr.updateStudent(up);
-                        //MainActivity ma = new MainActivity();
-                        //ma.RefreshGrid();
+
 
                     }
                 });
