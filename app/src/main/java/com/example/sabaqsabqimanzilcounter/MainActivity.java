@@ -52,7 +52,7 @@ DBHandler db;
                     Toast.makeText(MainActivity.this, "Please enter valid data", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                RecordClassManipulation data = new RecordClassManipulation(ed.getText().toString(),"", "","");
+                RecordClassManipulation data = new RecordClassManipulation( ed.getText().toString(),"", "","");
                 db.insertRecord(data);
                 RefreshGrid();
             }

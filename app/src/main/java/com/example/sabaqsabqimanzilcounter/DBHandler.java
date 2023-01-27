@@ -27,6 +27,8 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String COLUMN_StudentSabqi = "CSabqi";
     private static final String COLUMN_StudentManzil = "CManzil";
 
+    private static final String COLUMN_StudentRoll = "CRoll";
+
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -35,11 +37,13 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                               + COLUMN_datetime + " TEXT,"
+
                 + COLUMN_StudentName + " TEXT,"
                 + COLUMN_StudentSabaq + " TEXT,"
                 + COLUMN_StudentSabqi + " TEXT,"
-                + COLUMN_StudentManzil + " TEXT"
+                + COLUMN_StudentManzil + " TEXT,"
+                + COLUMN_StudentRoll + " TEXT,"
+                + COLUMN_datetime + " TEXT"
     //            + COLUMN_isCorrect + " INTEGER"
                 + ")";
         db.execSQL(sql);
@@ -55,15 +59,17 @@ public class DBHandler extends SQLiteOpenHelper {
     public void insertRecord( RecordClassManipulation qr) {
 
 
-
+        String cuurentTime =getSysTime();
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        //values.put(COLUMN_datetime, qr.getDate() );
+
         values.put(COLUMN_StudentName, qr.getName());
         values.put(COLUMN_StudentSabaq, qr.getSabaq());
         values.put(COLUMN_StudentSabqi, qr.getSabqi());
         values.put(COLUMN_StudentManzil, qr.getManzil());
+        //values.put(COLUMN_StudentRoll, );
+        values.put(COLUMN_datetime, cuurentTime );
 
         db.insert(TABLE_NAME, null, values);
         //db.close();
@@ -111,5 +117,15 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.update(TABLE_NAME, values, COLUMN_StudentName + " = ?", new String[] {studentdatachange.getName().toString()});
         db.close();
+    }
+
+
+    public String getSysTime(){
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        String date=dateFormat.format(cal.getTime());
+        return date;
+
     }
 }
