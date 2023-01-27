@@ -69,8 +69,10 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
                 View layout = inflator.inflate(R.layout.changerecord, (ViewGroup) v.findViewById(R.id.custt) );
                 //show custom view
                 builder.setView(layout);
-
-
+                // Sets the Name by fetching from thr recyclerview automatically
+                String a= holder.textViewFriendName.getText().toString();
+                EditText name1=(EditText) layout.findViewById(R.id.editTextTextPersonName);
+                name1.setText(a);
                 //end customview
 // Add the buttons
                 builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
@@ -96,13 +98,13 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
                         Log.d("hassan3 ",y);
                         Log.d("hassan4 ",z);
 
-                        name1.setText("hard coded text");
+
 
 
 
                         // User clicked Update button
                         DBHandler upr = new DBHandler(v.getContext());
-                       // String a= holder.textViewFriendName.getText().toString();
+
                         //Log.d("hassan ",a);
                         //Log.d("sabaq",holder.PersonSabaq.getText().toString() );
                         //RecordClassManipulation up = new RecordClassManipulation(a,holder.PersonSabaq.getText().toString(),holder.PersonSabqi.getText().toString(),holder.PersonManzil.getText().toString());
