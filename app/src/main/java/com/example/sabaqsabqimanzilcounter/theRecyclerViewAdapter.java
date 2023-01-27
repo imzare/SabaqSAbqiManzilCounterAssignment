@@ -4,6 +4,7 @@ package com.example.sabaqsabqimanzilcounter;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -134,6 +135,31 @@ public class theRecyclerViewAdapter extends RecyclerView.Adapter<theRecyclerView
                 dialog.show();
 
                 //dialogue box end
+
+            }
+        });
+
+
+
+
+        //View details
+
+        holder.textViewSeeDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+                // Getting roll from recyclerview to pass in function
+                String passRoll=holder.ID.getText().toString();
+                Log.d(passRoll, "what: ");
+
+                Intent intt = new Intent(v.getContext(), StudentBio.class);
+
+               // String message =  "Hassan"; //editText.getText().toString();
+                //intt.putExtra("key", 756);
+                intt.putExtra("passRoll", passRoll);
+                v.getContext().startActivity(intt);
 
             }
         });

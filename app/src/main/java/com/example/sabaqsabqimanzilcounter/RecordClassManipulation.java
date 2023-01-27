@@ -75,12 +75,6 @@ public class RecordClassManipulation {
     }
 
 
-    @Override
-    public String toString() {
-        return Name ;
-    }
-
-
     public String getRollNumber() {
         return RollNumber;
     }
@@ -88,4 +82,16 @@ public class RecordClassManipulation {
     public void setRollNumber(String rollNumber) {
         RollNumber = rollNumber;
     }
+
+/*    @Override
+    public String toString() {
+        return Name;
+    }*/
+
+    @Override
+    public String toString() {
+        return "Student Data:- Name:" + Name + ", rollNo=" + RollNumber ;
+    }
 }
+
+

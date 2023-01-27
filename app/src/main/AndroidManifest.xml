@@ -12,6 +12,9 @@
         android:theme="@style/Theme.SabaqSabqiManzilCounter"
         tools:targetApi="31">
         <activity
+            android:name=".StudentBio"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

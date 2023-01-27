@@ -129,4 +129,32 @@ public class DBHandler extends SQLiteOpenHelper {
         return date;
 
     }
+
+
+
+
+    public List<RecordClassManipulation> selectSpccificresults(String rollID) {
+        List<RecordClassManipulation> totalresult = new ArrayList<>();
+
+        String sql = "select * from " + TABLE_NAME +" where " + COLUMN_StudentRoll + " = " + "\"" +rollID+ "\""  ;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+
+
+        while(cursor.moveToNext()) {
+            String Student=cursor.getString(1);
+            String Sabaq=cursor.getString(2);
+            String Sabqi=cursor.getString(3);
+            String Manzil=cursor.getString(4);
+            String roll=cursor.getString(5);
+            //String CA=cursor.getString(2);
+            // int isc ;
+            totalresult.add(new RecordClassManipulation(Student, Sabaq,Sabqi,Manzil,roll ));
+        }
+        cursor.close();
+        // db.close();
+        return totalresult;
+    }
+
 }
