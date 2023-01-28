@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 TextView hd, ft, sb;
 ListView lw;
 EditText ed, ee;
-Button btn;
+Button btn, btngitt;
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
@@ -42,6 +44,7 @@ DBHandler db;
         ed=findViewById(R.id.editTextTextPersonName2);
         ee=findViewById(R.id.editTextTextRollnum);
         btn=findViewById(R.id.button2);
+        btngitt=findViewById(R.id.gitbtn);
         db = new DBHandler(this);
         RefreshGrid();
 
@@ -67,6 +70,16 @@ DBHandler db;
 
         });
 
+
+
+        btngitt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri webpage = Uri.parse("https://github.com/Ravian001/SabaqSAbqiManzilCounterAssignment/commits/phoneUI");
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                startActivity(intent);
+            }
+        });
 
 
 
