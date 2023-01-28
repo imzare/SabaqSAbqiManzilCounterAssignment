@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -47,15 +49,20 @@ DBHandler db;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(ed.getText().toString(), "printonClick: ");
 
+                if (TextUtils.isEmpty(ed.getText()) || TextUtils.isEmpty(ee.getText())) {
 
-                if (ed== null ) {
                     Toast.makeText(MainActivity.this, "Please enter valid data", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                RecordClassManipulation data = new RecordClassManipulation( ed.getText().toString(),"", "","",ee.getText().toString());
-                db.insertRecord(data);
-                RefreshGrid();
+                else {
+                    RecordClassManipulation data = new RecordClassManipulation(ed.getText().toString(), "", "", "", ee.getText().toString());
+                    db.insertRecord(data);
+                    RefreshGrid();
+
+
+                }
             }
 
         });
