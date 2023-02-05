@@ -83,7 +83,7 @@ DBHandler db;
         btngitt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri webpage = Uri.parse("https://github.com/Ravian001/SabaqSAbqiManzilCounterAssignment/commits/bugfix");
+                Uri webpage = Uri.parse("https://github.com/Ravian001/SabaqSAbqiManzilCounterAssignment/commits/experiment");
                 Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
                 startActivity(intent);
             }

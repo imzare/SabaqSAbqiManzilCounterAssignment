@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,12 +18,14 @@ import java.util.List;
 public class StudentBio extends AppCompatActivity {
 TextView testt;
 ListView lw;
+Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_bio);
 
         testt =findViewById(R.id.textViewMain);
+        btn = findViewById(R.id.delbtn);
 
         Intent intent = getIntent();
          String number = intent.getStringExtra("passRoll");
@@ -46,7 +50,21 @@ ListView lw;
 
         //RecordClassManipulation rv = new RecordClassManipulation();
 
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBHandler db = new DBHandler(v.getContext());
 
+
+                db.deleteData(number.toString());
+                Log.d(number, "deleteclick: ");
+                btn.setText("Record Deletion Successful");
+                 Intent intt = new Intent(v.getContext(), MainActivity.class);
+                v.getContext().startActivity(intt);
+
+
+            }
+        });
 
     }
 }

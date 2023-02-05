@@ -76,12 +76,20 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
-    public void deleteData() {
+    public void deleteData(String RollID) {
+
         SQLiteDatabase db = this.getWritableDatabase();
-        //String sql = "delete from " + TABLE_NAME;
-        //Cursor cursor = db.rawQuery(sql, null);
-        db.delete(TABLE_NAME, null,null);
-        db.close();
+        String query = "DELETE FROM Students WHERE CRoll = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{RollID});
+        cursor.moveToFirst();
+        cursor.close();
+
+
+
+       // String sql = "DELETE FROM Students WHERE CRoll ='" + RollID + "'";
+       // Cursor cursor = db.rawQuery(sql, null);
+        //db.delete(TABLE_NAME, "CRoll=?",new String[]{RollID});
+        //db.close();
     }
 
     public List<RecordClassManipulation> selectAllresults() {
