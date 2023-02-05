@@ -57,12 +57,20 @@ DBHandler db;
                 if (TextUtils.isEmpty(ed.getText()) || TextUtils.isEmpty(ee.getText())) {
 
                     Toast.makeText(MainActivity.this, "Please enter valid data", Toast.LENGTH_SHORT).show();
-                    return;
+                    ee.setText("BITF19A");
+                }
+
+                else if (db.CheckRoll(ee.getText().toString().trim())) {
+
+                    Toast.makeText(MainActivity.this, "Roll Number already Enrolled", Toast.LENGTH_SHORT).show();
+                    ee.setText("BITF19A");
+
                 }
                 else {
                     RecordClassManipulation data = new RecordClassManipulation(ed.getText().toString(), "", "", "", ee.getText().toString());
                     db.insertRecord(data);
                     RefreshGrid();
+                    ee.setText("BITF19A");
 
 
                 }
@@ -75,7 +83,7 @@ DBHandler db;
         btngitt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri webpage = Uri.parse("https://github.com/Ravian001/SabaqSAbqiManzilCounterAssignment/commits/phoneUI");
+                Uri webpage = Uri.parse("https://github.com/Ravian001/SabaqSAbqiManzilCounterAssignment/commits/bugfix");
                 Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
                 startActivity(intent);
             }

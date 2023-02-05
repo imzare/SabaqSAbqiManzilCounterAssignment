@@ -185,4 +185,26 @@ public class DBHandler extends SQLiteOpenHelper {
         return totalresult;
     }
 
+
+
+
+
+    public boolean CheckRoll(String rollID) {
+        List<RecordClassManipulation> totalresult = new ArrayList<>();
+        String totalfinal="";
+        String sql = "SELECT 1 FROM " + TABLE_NAME + " WHERE " + COLUMN_StudentRoll + " = '" + rollID + "'" ;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+
+
+
+        boolean exists = (cursor.getCount() > 0);
+        cursor.close();
+        return exists;
+    }
+
+
+
+
 }
