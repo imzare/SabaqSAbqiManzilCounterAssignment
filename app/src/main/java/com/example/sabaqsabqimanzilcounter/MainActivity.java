@@ -94,7 +94,7 @@ DBHandler db;
 
     //new recycler work
 
-        List<RecordClassManipulation> students = db.selectAllresults();
+        List<RecordClassManipulation> students = db.selectAllresultsWithSingleValue();
 
 
 

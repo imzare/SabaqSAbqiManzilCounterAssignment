@@ -107,6 +107,31 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
 
+    public List<RecordClassManipulation> selectAllresultsWithSingleValue() {
+        List<RecordClassManipulation> totalresult = new ArrayList<>();
+
+       // String sql = "select * from " + TABLE_NAME +" order by id DESC"  ;
+       String sql = "select * from Students Group By CRoll order by id DESC ";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+
+
+        while(cursor.moveToNext()) {
+            String Students=cursor.getString(1);
+            String roll=cursor.getString(5);
+            //String CA=cursor.getString(2);
+            // int isc ;
+            totalresult.add(new RecordClassManipulation(Students, "","","",roll ));
+        }
+        cursor.close();
+        // db.close();
+        return totalresult;
+    }
+
+
+
+
     public void updateStudent(RecordClassManipulation studentdatachange) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
